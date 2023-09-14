@@ -1,27 +1,19 @@
 package com.example.lifecicle_ex
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import com.example.lifecicle_ex.databinding.ActivityMainBinding
+import com.example.lifecicle_ex.databinding.ActivitySecondBinding
 import timber.log.Timber
 
-class MainActivity : AppCompatActivity() {
-    lateinit var binding: ActivityMainBinding
+class SecondActivity : AppCompatActivity() {
+    lateinit var binding: ActivitySecondBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivitySecondBinding.inflate(layoutInflater)
         setContentView(binding.root)
         Timber.e("onCreate")
         showToast("onCreate 실행")
-
-        binding.gotoSecond.setOnClickListener {
-            Timber.d("Go to Second Activity button clicked")
-            val intent = Intent(this, SecondActivity::class.java)
-            startActivity(intent)
-
-        }
     }
 
     override fun onStart() {
