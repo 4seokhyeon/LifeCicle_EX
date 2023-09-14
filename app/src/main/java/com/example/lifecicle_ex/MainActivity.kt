@@ -20,7 +20,13 @@ class MainActivity : AppCompatActivity() {
             Timber.d("Go to Second Activity button clicked")
             val intent = Intent(this, SecondActivity::class.java)
             startActivity(intent)
-
+        }
+        binding.goFragment.setOnClickListener {
+            val fragment = LifeFragment()
+            val transaction = supportFragmentManager.beginTransaction()
+            transaction.replace(R.id.frameLayout, fragment)
+            transaction.addToBackStack(null)
+            transaction.commit()
         }
     }
 
